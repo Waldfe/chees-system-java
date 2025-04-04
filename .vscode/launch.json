@@ -4,14 +4,14 @@
             "type": "java",
             "name": "Program",
             "request": "launch",
-            "mainClass": "aplication.Program",
+            "mainClass": "application.Program",
             "projectName": "chees-system-java_aea1e48b"
         },
         {
             "type": "java",
-            "name": "App",
+            "name": "Program",
             "request": "launch",
-            "mainClass": "App",
+            "mainClass": "Program",
             "projectName": "chees-system-java_aea1e48b"
         },
         {
