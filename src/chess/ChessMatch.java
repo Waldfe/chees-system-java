@@ -1,6 +1,8 @@
 package chess;
 
 import boardgame.Board;
+import boardgame.Piece;
+import boardgame.Position;
 import chess.pieces.King;
 import chess.pieces.Rock;
 
@@ -30,14 +32,36 @@ public class ChessMatch {
         return mat;
     }   
 
+    public ChessPiece performChessMove( ChessPosition sourcePosition, ChessPosition targetPosition ){
+        Position source = sourcePosition.toPosition();
+        Position target = targetPosition.toPosition();
+        validateSourcePosition( source );
+        Piece capturedPiece = makeMove( source, target );
+        return (ChessPiece)capturedPiece;
+    }
+    public Piece makeMove( Position source, Position target ){
+        Piece p = board.removePiece(source);
+        Piece capturedPiece = board.removePiece(target);
+        board.placePiece(p, target);
+        return capturedPiece;
+
+    }
+
+    public void validateSourcePosition( Position position ){
+        if( !board.thereIsAPiece( position ) ){
+            throw new ChessException("Nao existe peca na posicao de origem");
+        }
+    }
+
+
     private void placeNewPiece( char column, int row, ChessPiece piece ){
         board.placePiece( piece, new ChessPosition(column, row).toPosition());
     }
 
     private void initialSetup() {
 
-        placeNewPiece('e', 8, new King(board, Color.BLACK));
-        placeNewPiece('e', 1, new King(board, Color.WHITE));
+        placeNewPiece('e', 8, new Rock(board, Color.BLACK));
+        placeNewPiece('e', 1, new Rock(board, Color.WHITE));
         placeNewPiece('c', 1, new Rock(board, Color.WHITE));
         placeNewPiece('c', 2, new Rock(board, Color.WHITE));
         placeNewPiece('d', 2, new Rock(board, Color.WHITE));
@@ -48,8 +72,8 @@ public class ChessMatch {
         placeNewPiece('c', 8, new Rock(board, Color.BLACK));
         placeNewPiece('d', 7, new Rock(board, Color.BLACK));
         placeNewPiece('e', 7, new Rock(board, Color.BLACK));
-        placeNewPiece('d', 8, new Rock(board, Color.BLACK));
-        
+        placeNewPiece('d', 8, new King(board, Color.BLACK));
+
     }
 
 }
