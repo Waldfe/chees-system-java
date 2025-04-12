@@ -19,10 +19,29 @@ public class ChessMatch {
 
     public ChessMatch(){
         board = new Board( 8, 8 );
+        turn = 1;
+        currentPlayer = Color.WHITE;
         initialSetup();
     }
 
-    public ChessPiece[][] getpieces() {
+    public int getTurn(){
+        return turn;
+    }
+
+    public Color getcurrentPlayer(){
+        return currentPlayer;
+    }
+
+    private void nextTurn() {
+        turn++;
+        if( turn%2 == 0 ){
+            currentPlayer = Color.BLACK;
+        } else{
+            currentPlayer =  Color.WHITE;
+        }
+    }
+
+    public ChessPiece[][] getPieces() {
         ChessPiece[][] mat = new ChessPiece[board.getRows()][board.getColumns()];
         for( int i=0; i<board.getRows(); i++ ){
             for( int j=0; j<board.getColumns(); j++ ){
@@ -44,6 +63,7 @@ public class ChessMatch {
         validateSourcePosition( source );
         validateTargetPosition( source, target );
         Piece capturedPiece = makeMove( source, target );
+        nextTurn();
         return (ChessPiece)capturedPiece;
     }
     public Piece makeMove( Position source, Position target ){
@@ -57,6 +77,10 @@ public class ChessMatch {
     public void validateSourcePosition( Position position ){
         if( !board.thereIsAPiece( position ) ){
             throw new ChessException("Nao existe peca na posicao de origem");
+        }
+        if( getcurrentPlayer() != ((ChessPiece)board.piece(position)).getColor()){
+            throw new ChessException("Essa peça não é sua");
+            
         }
         if(!board.piece(position).IsThereAnyPosibleMove()){
             throw new ChessException("Nao existe movimentos possiveis para essa peca");
