@@ -51,6 +51,13 @@ public class ChessGUI extends JFrame {
                 source = null;
                 updateBoard();
 
+                // Verifica se há promoção pendente
+                if (chessMatch.getPromoted() != null) {
+                    String type = showPromotionDialog(); // Diálogo gráfico
+                    chessMatch.replacePromotedPiece(type);
+                    updateBoard(); // Atualiza o tabuleiro após promoção
+                }
+
                 if (chessMatch.getCheckMate()) {
                     JOptionPane.showMessageDialog(this,
                             "XEQUE-MATE! Vencedor: " + chessMatch.getCurrentPlayer() );
@@ -100,6 +107,24 @@ public class ChessGUI extends JFrame {
             }
         }
     }
+
+    // Diálogo para escolher a peça de promoção
+private String showPromotionDialog() {
+    Object[] options = {"Q", "R", "B", "N"}; // Rainha, Torre, Bispo, Cavalo
+    String message = "Promova o peão para:\n(Q) Rainha | (R) Torre | (B) Bispo | (N) Cavalo";
+    
+    String input = (String) JOptionPane.showInputDialog(
+        this,
+        message,
+        "Promoção de Peão",
+        JOptionPane.QUESTION_MESSAGE,
+        null,
+        options,
+        options[0] // Valor padrão
+    );
+
+    return input != null ? input : "Q"; // Se cancelar, padrão para Rainha
+}
 
     private String getPieceSymbol(ChessPiece piece) {
         String symbol = piece.toString().toUpperCase(); // ex: "Q", "K", "B"
