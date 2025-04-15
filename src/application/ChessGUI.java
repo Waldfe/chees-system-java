@@ -39,11 +39,17 @@ public class ChessGUI extends JFrame {
     private void onSquareClick(int row, int col) {
         ChessPosition clicked = new ChessPosition((char) ('a' + col), 8 - row);
 
-        if (source == null) {
-            ChessPiece piece = chessMatch.getPieces()[row][col];
-            if (piece != null && piece.getColor() == chessMatch.getCurrentPlayer() ) {
-                source = clicked;
-                highlightPossibleMoves(chessMatch.possibleMoves(source));
+        if (source == null ) {
+            try {
+                ChessPiece piece = chessMatch.getPieces()[row][col];
+                if (piece != null && piece.getColor() == chessMatch.getCurrentPlayer() ) {
+                    source = clicked;  
+                    highlightPossibleMoves(chessMatch.possibleMoves(source));
+                }
+            } catch (ChessException e) {
+                JOptionPane.showMessageDialog(this, e.getMessage());
+                source = null;
+                updateBoard();
             }
         } else {
             try {
@@ -67,6 +73,7 @@ public class ChessGUI extends JFrame {
                 source = null;
                 updateBoard();
             }
+
         }
     }
 
@@ -97,7 +104,7 @@ public class ChessGUI extends JFrame {
         }
     }
 
-    private void highlightPossibleMoves(boolean[][] moves) {
+    private void highlightPossibleMoves( boolean[][] moves ) {
         updateBoard(); // limpa
         for (int i = 0; i < moves.length; i++) {
             for (int j = 0; j < moves[i].length; j++) {
