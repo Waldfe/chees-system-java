@@ -90,7 +90,7 @@ public class Pawn extends ChessPiece {
             }
 
             //Movimento especial EnPassant
-            if( p.getRow() == 4 ){
+            if( position.getRow() == 4 ){
                 Position left = new Position( position.getRow(), position.getColumn() - 1 );
                 if( getBoard().piece( left.getRow() + 1, left.getColumn() ) == null ){
                     if( getBoard().positionExists( left ) && isThereOpponentPiece( left ) && getBoard().piece( left ) == chessMatch.getEnPassantVunerable() ){
@@ -98,8 +98,10 @@ public class Pawn extends ChessPiece {
                     }
                 }
                 Position Rigth = new Position( position.getRow(), position.getColumn() + 1 );
-                if( getBoard().positionExists( Rigth ) && isThereOpponentPiece( Rigth ) && getBoard().piece( Rigth ) == chessMatch.getEnPassantVunerable() ){
-                    mat[Rigth.getRow() + 1][Rigth.getColumn()] = true;
+                if( getBoard().piece( Rigth.getRow() + 1, Rigth.getColumn() ) == null ){
+                    if( getBoard().positionExists( Rigth ) && isThereOpponentPiece( Rigth ) && getBoard().piece( Rigth ) == chessMatch.getEnPassantVunerable() ){
+                        mat[Rigth.getRow() + 1][Rigth.getColumn()] = true;
+                    }
                 }
             }
 

@@ -109,7 +109,7 @@ public class ChessMatch {
         }
 
         //Movimento especial En Passant
-        if( movedPiece instanceof Pawn && ( target.getRow() == source.getRow() + 2 || target.getRow() == source.getRow() - 2 ) ){
+        if( movedPiece instanceof Pawn && ( ( target.getRow() == source.getRow() + 2 ) || ( target.getRow() == source.getRow() - 2 ) ) ){
             enPassantVunerable = movedPiece;
         } else{
             enPassantVunerable = null;

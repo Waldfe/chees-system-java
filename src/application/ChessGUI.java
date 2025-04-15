@@ -127,7 +127,7 @@ private String showPromotionDialog() {
 }
 
     private String getPieceSymbol(ChessPiece piece) {
-        String symbol = piece.toString().toUpperCase(); // ex: "Q", "K", "B"
+        String symbol = piece.toString().toUpperCase(); 
         return switch (symbol) {
             case "P" -> "♟";
             case "R" -> "♜";
