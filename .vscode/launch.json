@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ChessGUI",
+            "request": "launch",
+            "mainClass": "application.ChessGUI",
+            "projectName": "chees-system-java_aea1e48b"
+        },
+        {
+            "type": "java",
             "name": "Program",
             "request": "launch",
             "mainClass": "application.Program",

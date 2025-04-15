@@ -39,7 +39,7 @@ public class ChessMatch {
         return turn;
     }
 
-    public Color getcurrentPlayer(){
+    public Color getCurrentPlayer(){
         return currentPlayer;
     }
 
@@ -258,7 +258,7 @@ public class ChessMatch {
         if( !board.thereIsAPiece( position ) ){
             throw new ChessException("Nao existe peca na posicao de origem");
         }
-        if( getcurrentPlayer() != ((ChessPiece)board.piece(position)).getColor()){
+        if( getCurrentPlayer() != ((ChessPiece)board.piece(position)).getColor()){
             throw new ChessException("Essa peça não é sua");
             
         }
