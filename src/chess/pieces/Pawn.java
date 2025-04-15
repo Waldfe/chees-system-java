@@ -50,14 +50,14 @@ public class Pawn extends ChessPiece {
             //Movimento especial EnPassant
             if( position.getRow() == 3 ){
                 Position left = new Position( position.getRow(), position.getColumn() - 1 );
-                if( getBoard().piece( left.getRow() - 1, left.getColumn() ) == null ){
-                    if( getBoard().positionExists( left ) && isThereOpponentPiece( left ) && getBoard().piece( left ) == chessMatch.getEnPassantVunerable()){
+                if( getBoard().positionExists( left ) && isThereOpponentPiece( left ) && getBoard().piece( left ) == chessMatch.getEnPassantVunerable()){
+                    if( getBoard().piece( left.getRow() - 1, left.getColumn() ) == null ){
                         mat[left.getRow() - 1][left.getColumn() ] = true;
                     }
                 }
                 Position Rigth = new Position( position.getRow(), position.getColumn() + 1 );
-                if( getBoard().piece( Rigth.getRow() - 1, Rigth.getColumn() ) == null ){
-                    if( getBoard().positionExists( Rigth ) && isThereOpponentPiece( Rigth ) && getBoard().piece( Rigth ) == chessMatch.getEnPassantVunerable() ){
+                if( getBoard().positionExists( Rigth ) && isThereOpponentPiece( Rigth ) && getBoard().piece( Rigth ) == chessMatch.getEnPassantVunerable() ){
+                    if( getBoard().piece( Rigth.getRow() - 1, Rigth.getColumn() ) == null ){
                         mat[Rigth.getRow() - 1][Rigth.getColumn()] = true;
                     }
                 }
@@ -92,14 +92,14 @@ public class Pawn extends ChessPiece {
             //Movimento especial EnPassant
             if( position.getRow() == 4 ){
                 Position left = new Position( position.getRow(), position.getColumn() - 1 );
-                if( getBoard().piece( left.getRow() + 1, left.getColumn() ) == null ){
-                    if( getBoard().positionExists( left ) && isThereOpponentPiece( left ) && getBoard().piece( left ) == chessMatch.getEnPassantVunerable() ){
+                if( getBoard().positionExists( left ) && isThereOpponentPiece( left ) && getBoard().piece( left ) == chessMatch.getEnPassantVunerable() ){
+                    if( getBoard().piece( left.getRow() + 1, left.getColumn() ) == null ){
                         mat[left.getRow() + 1 ][left.getColumn()] = true;
                     }
                 }
                 Position Rigth = new Position( position.getRow(), position.getColumn() + 1 );
-                if( getBoard().piece( Rigth.getRow() + 1, Rigth.getColumn() ) == null ){
-                    if( getBoard().positionExists( Rigth ) && isThereOpponentPiece( Rigth ) && getBoard().piece( Rigth ) == chessMatch.getEnPassantVunerable() ){
+                if( getBoard().positionExists( Rigth ) && isThereOpponentPiece( Rigth ) && getBoard().piece( Rigth ) == chessMatch.getEnPassantVunerable() ){
+                    if( getBoard().piece( Rigth.getRow() + 1, Rigth.getColumn() ) == null ){
                         mat[Rigth.getRow() + 1][Rigth.getColumn()] = true;
                     }
                 }
