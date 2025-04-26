@@ -67,6 +67,7 @@ public class ChessGUI extends JFrame {
                 if (chessMatch.getCheckMate()) {
                     JOptionPane.showMessageDialog(this,
                             "XEQUE-MATE! Vencedor: " + chessMatch.getCurrentPlayer() );
+                            System.exit(0);
                 }
             } catch (ChessException e) {
                 JOptionPane.showMessageDialog(this, e.getMessage());
