@@ -23,7 +23,7 @@ Este é um projeto de estudo que desenvolvi utilizando Java, com interface gráf
 1. Clone o repositório:
    ```bash
    git clone https://github.com/Waldfe/chess-system-java.git
-   
+   ```
 2. Abra o projeto em uma IDE Java (ex: IntelliJ, Eclipse, VSCode).
 
 3. Execute a classe Program.java. 
