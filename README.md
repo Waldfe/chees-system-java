@@ -1,18 +1,29 @@
-## Getting Started
+# Sistema de Jogo de Xadrez em Java
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Este é um projeto de estudo que desenvolvi utilizando Java, com interface gráfica baseada em Swing, como parte do curso de Java da Udemy.
 
-## Folder Structure
+## Funcionalidades
+- Partidas completas de xadrez entre dois jogadores locais
+- Implementação das regras oficiais do xadrez
+- Interface gráfica para movimentação das peças
+- Validação de movimentos
+- Exibição de peças capturadas e status da partida
 
-The workspace contains two folders by default, where:
+## Tecnologias utilizadas
+- Java
+- Java Swing (AWT/Swing)
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Aprendizados
+- Programação orientada a objetos (POO)
+- Manipulação de eventos gráficos
+- Estruturação e organização de código
+- Implementação de lógica de regras complexas
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Como executar
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/Waldfe/chees-system-java.git
+   
+2. Abra o projeto em uma IDE Java (ex: IntelliJ, Eclipse, VSCode)
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+3. Execute a classe principal
