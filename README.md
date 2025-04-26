@@ -26,4 +26,9 @@ Este é um projeto de estudo que desenvolvi utilizando Java, com interface gráf
    ```
 2. Abra o projeto em uma IDE Java (ex: IntelliJ, Eclipse, VSCode).
 
-3. Execute a classe Program.java. 
+3. Execute a classe Program.java.
+
+## Melhorias Futuras
+- Implementar modo contra IA (computador jogando como adversário).
+- Adicionar controle de tempo (relógio de xadrez para cada jogador).
+- Melhorar a interface gráfica com temas personalizados para peças e tabuleiro.
